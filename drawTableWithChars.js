@@ -132,8 +132,9 @@
                 if(columnQueue[i][j] === undefined || columnQueue[i][j] === null) {
                     continue;
                 } else {
-                    if(columnQueue[i][j].length > result[j]) {
-                        result[j] = columnQueue[i][j].length;
+                    var strLength = strlen(columnQueue[i][j]);
+                    if(strLength > result[j]) {
+                        result[j] = strLength;
                     }
                 }
             }
@@ -368,7 +369,7 @@
         var length = length;
         var direction = direction;
         var spaces = '';
-        for(var i = value.length; i < length; i++) {
+        for(var i = strlen(value); i < length; i++) {
             spaces += ' ';
         }
         if(direction === true) {
@@ -376,6 +377,11 @@
         } else {
             return spaces + value;
         }
+    }
+
+
+    function strlen(str) {
+        return str.replace(/[^\x00-\xff]/g, "**").length;
     }
 
     return {
@@ -401,7 +407,7 @@
         init: function(ctn, data) {
             ctn = ctn || document.getElementsByTagName('body')[0];
             if(Object.prototype.toString.apply(data) === '[object Object]') {
-                ctn.appendChild(draw(this.table));
+                ctn.appendChild(draw(data));
             } else {
                 ctn.appendChild(draw(this.table));
                 console.log('Data is Error,Draw the Emample Table!');

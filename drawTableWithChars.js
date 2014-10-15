@@ -38,7 +38,7 @@
     function formatData(table) {//format all data in title and data to standard form
         var result = {};
         result.direction = table.direction;
-        var titleLength = table.title.length;
+        var titleLength = table.title ? table.title.length : 0;
         var dataLength = table.data.length;
         var title = [];
         var data = [];
@@ -105,7 +105,9 @@
                 }
             }
         }
-        result.unshift(column);
+        if(titleLength !== 0) {
+            result.unshift(column);
+        }
         var max = result[0].length;
         var resultLength = result.length;
         for(var i = 0; i < resultLength; i++) {
@@ -145,17 +147,19 @@
     function getBigData(data) {//get the data where col !=1 or row != 1
         var result = [];
         var title = data.title;
+        var titleLength = data.title.length;
+        var titleOffset = (titleLength === 0 ? 0 : 1);
         var data = data.data;
-        for(var i = 0; i < title.length; i++) {
+        for(var i = 0; i < titleLength; i++) {
             if(title[i].col !== 1 || title[i].row !== 1) {
-                result.push({location: 0, data: title[i]});
+                result.push({location: 1, data: title[i]});
             }
         }
         for(var i = 0; i < data.length; i++) {
             for(var j = 0; j < data[i].length; j++) {
                 if(data[i][j] !== null) {
                     if(data[i][j].col !== 1 || data[i][j].row !== 1) {
-                        result.push({location: (i + 1) * 2 + 1, data: data[i][j]});
+                        result.push({location: (i + titleOffset) * 2 + 1, data: data[i][j]});
                     }
                 }
             }
@@ -275,12 +279,11 @@
             }
             var start = result[location].indexOf(content, contentStart);
             for(var j = 0; j < (row * 2) - 1; j++) {
-                for(var k = 0; k < col - 1; k++) {
+                for(var k = 0; k < col - 1; k++) {//change '|' to space
                     var point = result[location + j].indexOf('|', start);
                     result[location + j] = changeWord(result[location + j], point, point + 1, ' ');
                 }
                 if(j % 2 === 1) {
-
                     var first = findFrontFlag(result[location + j], '|', start);
                     var point = result[location + j].indexOf('|', start);
                     result[location + j] = changeWord(result[location + j], first + 1, point, fillSpace(point - first - 1));

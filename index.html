@@ -9,20 +9,31 @@
 <script src="drawTableWithChars.js"></script>
 <script>
     drawTables.init(document.getElementById('ctn'), {
-        title: ['啊哈哈哈哈', 'age', 'sex'],
-        direction: [0, 'age'],
+//        title: [
+//            {content: 'Database', col: 6}
+//        ],
+        direction: [],
         data: [
-            ['haasdfha', 10, {content: 'heihei', col: 4, row: 3}],
-            ['hehe', 10],
-            ['haasdfha', 10, 'male'],
             [
-                {content: 'heihei', col: 4, row: 3},
-                {content: 'heihei', col: 4, row: 3},
+                {content: 'users', col: 6}
             ],
+            ['username', 'password'],
             [
-                {content: 'heihei', col: 4, row: 3},
-                {}
-            ]
+                {content: 'readers', col: 6}
+            ],
+            ['name', 'number', 'arrear'],
+            [
+                {content: 'books', col: 6}
+            ],
+            ['name', 'price', 'reader_id', 'start', 'continue', 'broken'],
+            [
+                {content: 'fines', col: 6}
+            ],
+            ['reader', 'book', 'money'],
+            [
+                {content: 'records', col: 6}
+            ],
+            ['reader', 'book', 'start', 'end', 'broken', 'money']
         ]
     });
 </script>

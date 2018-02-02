@@ -1,41 +1,44 @@
 <!DOCTYPE html>
 <html>
+
 <head lang="en">
     <meta charset="UTF-8">
     <title>Draw table with chars</title>
 </head>
+
 <body>
-<div id="ctn"></div>
-<script src="drawTableWithChars.js"></script>
-<script>
-    drawTables.init(document.getElementById('ctn'), {
-//        title: [
-//            {content: 'Database', col: 6}
-//        ],
-        direction: [],
-        data: [
-            [
-                {content: 'users', col: 6}
-            ],
-            ['username', 'password'],
-            [
-                {content: 'readers', col: 6}
-            ],
-            ['name', 'number', 'arrear'],
-            [
-                {content: 'books', col: 6}
-            ],
-            ['name', 'price', 'reader_id', 'start', 'continue', 'broken'],
-            [
-                {content: 'fines', col: 6}
-            ],
-            ['reader', 'book', 'money'],
-            [
-                {content: 'records', col: 6}
-            ],
-            ['reader', 'book', 'start', 'end', 'broken', 'money']
-        ]
-    });
-</script>
+    <div id="ctn"></div>
+    <script src="drawTableWithChars.js"></script>
+    <script>
+        drawTables.init(document.getElementById('ctn'), {
+            //        title: [
+            //            {content: 'Database', col: 6}
+            //        ],
+            direction: [],
+            data: [
+                [
+                    {content: 'users', col: 6}
+                ],
+                ['username', 'password'],
+                [
+                    {content: 'readers', col: 6}
+                ],
+                ['name', 'number', 'arrear'],
+                [
+                    {content: 'books', col: 6}
+                ],
+                ['name', 'price', 'reader_id', 'start', 'continue', 'broken'],
+                [
+                    {content: 'fines', col: 6}
+                ],
+                ['reader', 'book', 'money'],
+                [
+                    {content: 'records', col: 6}
+                ],
+                ['reader', 'book', 'start', 'end', 'broken', 'money']
+            ]
+        });
+    </script>
 </body>
+
 </html>

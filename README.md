@@ -1,8 +1,8 @@
-#drawTableWithChars
+# drawTableWithChars
 
 用纯字符画出表格。Draw tables with chars.
 
-###使用 Usage:
+### 使用 Usage:
 
 @param {Dom} 父级dom节点               
 @param {Object} 描述表格内容对象
